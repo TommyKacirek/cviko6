@@ -1,6 +1,4 @@
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,15 +25,15 @@ public class Graph {
         }
         return null;
     }
-
-    public void addEdge(Vertex source, Vertex destination, int weight, String packagePath) {
-        Edge edge = new Edge(source, destination, weight, packagePath);
+    // V každé iteraci for-each loopu se do proměnné vertex přiřadí aktuální prvek ze seznamu a kód uvnitř loopu se provede s tímto prvkem.
+    public void addEdge(Vertex source, Vertex destination, int weight) {
+        Edge edge = new Edge(source, destination, weight);
         edges.add(edge);
     }
-
-    public int getCost(Vertex source, Vertex destination, String packagePath) {
+    // pro graf jako celek
+    public int getCost(Vertex source, Vertex destination) {
         for (Edge edge : edges) {
-            if (edge.getSource().equals(source) && edge.getDestination().equals(destination) && edge.getPackagePath().startsWith(packagePath)) {
+            if (edge.getSource().equals(source) && edge.getDestination().equals(destination)) {
                 return edge.getPrice();
             }
         }
